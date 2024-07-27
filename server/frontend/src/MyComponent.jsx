@@ -4,7 +4,7 @@ import { useState } from 'react';
 const MyComponent = () => {
     const [data, setData] = useState();
     function fetchData() {
-        fetch('http://localhost:5010/list', {
+        fetch(`${window.location.origin}/list`, {
             method: 'GET',
         })
             .then(response => response.json())
