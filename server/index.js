@@ -3,7 +3,6 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 
-  var allowedOrigin = ['http://127.0.0.1:5500'];
 // const corsOptions = {
 //   origin: function(origin, callback) {
 //     if (allowedOrigin.indexOf(origin) !== -1 || !origin) {
@@ -15,10 +14,10 @@ const cors = require('cors');
 // }
 
 app.use(cors());
-
+const dir = __dirname.split('server').join('');
 app.get('/', (req, res)=> {
-  app.use(express.static(path.resolve(__dirname, 'frontend', 'build')))
-  res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+  app.use(express.static(path.resolve(dir, 'frontend', 'build')))
+  res.sendFile(path.resolve(dir, 'frontend', 'build', 'index.html'))
 })
 
 app.get('/list', (req, res) => {
