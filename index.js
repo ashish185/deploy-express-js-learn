@@ -15,6 +15,7 @@ const cors = require('cors');
 
 app.use(cors());
 const dir = __dirname.split('server').join('');
+console.log('dir', dir);
 app.get('/', (req, res)=> {
   app.use(express.static(path.resolve(dir, 'frontend', 'build')))
   res.sendFile(path.resolve(dir, 'frontend', 'build', 'index.html'))
